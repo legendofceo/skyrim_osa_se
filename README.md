@@ -1,5 +1,8 @@
 # OSA-SE
 
+NEXUS: https://www.nexusmods.com/skyrimspecialedition/mods/17217?tab=posts
+LL: ?
+
 OSA is an engine-like mod for Skyrim that adds on to it's potential in many ways. The heart of it is an animation framework that allows developers to have stronger control, effects, and usability in animated scenes. This ties in with OSA's PERSONA system that adds depth to character's personalities beyond what Skyrim provides.  Almost the entire OSA engine exists and runs in the UI of Skyriim which offers a lot of benefits as opposed to being run in Skyrim's papyrus. That gives all aspects of this project access to the UI for interactive displays, navigation and customization.
 
 # Elements to Combine
