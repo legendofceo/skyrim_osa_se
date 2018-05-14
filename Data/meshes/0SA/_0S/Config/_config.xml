@@ -121,6 +121,7 @@
 <stat cmd="header" t="BODY"/>
 <stat t="Weight" v="{{weight}}"/>
 <stat t="Height" v="{{height}}"/>
+<stat t="Age" v="{age}"/>
 </frame>
 </splash>	
 
