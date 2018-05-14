@@ -165,7 +165,9 @@ RegisterForModEvent("OSA_ScanDirectoryForFileType", "OnScanDirectoryForFileType"
 
 OControl= Quest.GetQuest("0SAControl") as _oControl
 OControl.resetControls()
-codePage = CPConvert.GetCPForGameLng()
+;;CPConvert.dll NEED FIX (CPConvert needs 64bit recompile)
+;;codePage = CPConvert.GetCPForGameLng()
+codePage = 1252
 OINI[2] = Codepage
 GlobalPosition = new ObjectReference[100]
 endFunction
@@ -524,7 +526,9 @@ event OnSpecial(string eventName, string special, float floatVal, Form sender)
 if special == "ExposureException"
 _oFrostFall.oFrostFall(GlobalPosition[floatVal as int])
 elseIf special == "RefreshCodepage"
-codePage = CPConvert.GetCPForGameLng()
+;;CPConvert.dll NEED FIX (CPConvert needs 64bit recompile)
+;codePage = CPConvert.GetCPForGameLng()
+codePage = 1252
 OINI[2] = Codepage
 endIf
 endEvent

@@ -8,6 +8,7 @@ endProperty
 
 import _oGlobal
 
+
 int glyph
 actor playerRef
 bool _isSetup = false
@@ -364,7 +365,55 @@ EndEvent
 event OnTargeting(string eventName, string Query, float numArg, Form sender)
 string IDs
 If Query == "ScanCell"
-    actor[] actraInRange = MiscUtil.ScanCellActors(PlayerRef, 5000.0)
+
+    ;TEMPORARY REMOVED. ScanCellActors is currently not functioning in MiscUtil
+    ;actor[] actraInRange = MiscUtil.ScanCellActors(PlayerRef, 5000.0)
+
+    ;This is an uncomfortable band-aid to fix the lack of ScanCellActors() in MiscUtil.
+    ;Cannot find any papyrus functions which recreate the above cleanly.
+    ;Potentially a spell cloak could be used but that sounds like it might be even more expensive.
+
+    
+
+    actor actraFound
+
+
+    int scanAmount = 25
+    actor[] actraFoundArr = new actor[25]
+    int iscan = 0
+    int foundCount = 0
+    while iscan < scanAmount
+    actraFound = Game.FindRandomActorFromRef(PlayerRef, 5000.0)
+    if actraFoundArr.find(actraFound)==-1
+       ;;PapyrusUtil.PushActor(actraInRange, actorFound)
+       actraFoundArr[iscan] = actraFound
+       foundCount+=1
+    endIf
+    iscan+=1
+    endWhile
+
+
+    actor[] actraInRange = PapyrusUtil.ActorArray(foundCount)
+
+    iscan = 0
+    int foundCountAdded = 0
+    while iscan < scanAmount
+
+    if actraFoundArr[iscan]!=none
+       actraInRange[foundCountAdded] = actraFoundArr[iscan]
+       foundCountAdded+=1
+    endIf
+    iscan+=1
+    endWhile
+
+    ;;END OF SHITTY BAND-AID
+
+
+    debug.notification("scandone")
+
+
+    
+
     int i = 0
     int l = actraInRange.length
     while i < l

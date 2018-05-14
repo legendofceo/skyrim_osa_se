@@ -191,7 +191,8 @@ EndFunction
 string[] function sendActraDetails(actor actra, string FormID, _oOmni oso) global
 
 If (!CPConvert.CPIsValid(oso.codepage))
-    Debug.Notification(oso.codepage + " is not a valid codepage value!")
+    ;;CPConvert.dll NEED FIX (CPConvert needs 64bit recompile)
+    ;Debug.Notification(oso.codepage + " is not a valid codepage value!")
 EndIf
 
 
@@ -201,7 +202,10 @@ actorBase ActB = actra.GetActorBase()
 string[] details = new string[20]
 details[0] = FormID
 details[1] = actra.getFormId()
-details[2] = CPConvert.CPConv(oso.codepage, "UTF-8", ActB.GetName())
+;;CPConvert.dll NEED FIX (CPConvert needs 64bit recompile)
+;details[2] = CPConvert.CPConv(oso.codepage, "UTF-8", ActB.GetName())
+details[2] = ActB.GetName()
+
 details[3] = ActB.GetSex()
 if actra == oso.PlayerRef
 details[4] = "1"
@@ -233,7 +237,10 @@ details[7] = ActB.GetVoiceType().getFormId()
    ; endif
    ; endIf
 
-details[6] = CPConvert.CPConv(oso.codepage, "UTF-8", ActB.GetRace().GetName())
+;;CPConvert.dll NEED FIX (CPConvert needs 64bit recompile)
+;details[6] = CPConvert.CPConv(oso.codepage, "UTF-8", ActB.GetRace().GetName())
+details[6] = ActB.GetRace().GetName()
+
 details[5] = actra.getScale()
 
 
@@ -285,7 +292,10 @@ While zSlot <= 32
 EqCur = Actra.GetWornForm(getOSlot(zSlot)) as armor
 If EqCur
 Eq[zSlot] = EqCur.getFormID()
-Eq[zSlot+40] = CPConvert.CPConv(codePage, "UTF-8", EqCur.getName())
+
+;;CPConvert.dll NEED FIX (CPConvert needs 64bit recompile)
+;Eq[zSlot+40] = CPConvert.CPConv(codePage, "UTF-8", EqCur.getName())
+Eq[zSlot+40] = EqCur.getName()
 Else
 Eq[zSlot] = 0
 Eq[zSlot+40] = "noeq"   
@@ -321,11 +331,15 @@ If !zWep
     WepUnit[4] = 9
 ElseIf (zWep as Weapon)
     WepUnit[2] = zWep.getFormID()
-    WepUnit[3] = CPConvert.CPConv(codePage, "UTF-8", zWep.getName())
+    ;;CPConvert.dll NEED FIX (CPConvert needs 64bit recompile)
+    ;WepUnit[3] = CPConvert.CPConv(codePage, "UTF-8", zWep.getName())
+    zWep.getName()
     WepUnit[4] = "0"
 ElseIf (zWep as Spell)
     WepUnit[2] = zWep.getFormID()
-    WepUnit[3] = CPConvert.CPConv(codePage, "UTF-8", zWep.getName())
+    ;;CPConvert.dll NEED FIX (CPConvert needs 64bit recompile)
+    ;WepUnit[3] = CPConvert.CPConv(codePage, "UTF-8", zWep.getName())
+    zWep.getName()
     WepUnit[4] = "1"    
 Else
     WepUnit[2] = 0

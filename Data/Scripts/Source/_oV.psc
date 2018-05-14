@@ -2,11 +2,11 @@ Scriptname _oV
 
 
 float function getScriptVersion() global
-return 2.02
+return 2.03
 endFunction
 
 string function getScriptVersion_s() global
-return "2.02"
+return "2.03"
 endFunction
 
 float function getBracket() global
@@ -18,5 +18,5 @@ return "1.0"
 endFunction
 
 int function GetIVersion() global
-return 103
+return 104
 endFunction
