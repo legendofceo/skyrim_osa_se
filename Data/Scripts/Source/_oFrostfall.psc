@@ -6,5 +6,5 @@ function oFrostfall(form exceptionForm) global
 endFunction
 
 string function oFrostCompat() global
-return "1"
+return "0"
 endFunction
